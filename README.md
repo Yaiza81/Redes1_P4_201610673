@@ -22,11 +22,29 @@ solamente con host de su mismo departamento.
 #### ==============  Configurar los modos de acceso y/o troncal ==================================
 
 ###### ESW1
-
+- conf t
+- interface range fastEthernet 1/0 - 4
+- switchport mode trunk
+- switchport trunk allowed vlan 1,10,20,1002-1005
+  
+  ![image](Imagenes/t1.PNG)
+  
 ###### ESW2
-
+- conf t
+- interface range fastEthernet 1/1 - 6
+- switchport mode trunk
+- switchport trunk allowed vlan 1,10,20,1002-1005
+  
+  ![image](Imagenes/t2.PNG)
+  
 ###### ESW3
-
+- conf t
+- interface range fastEthernet 1/1 - 6
+- switchport mode trunk
+- switchport trunk allowed vlan 1,10,20,1002-1005
+  
+  ![image](Imagenes/t3.PNG)
+  
 ###### Switch 1 
 - Posicionarse sobre el sw
 - Clic derecho y seleccionar configuración 
@@ -40,6 +58,59 @@ solamente con host de su mismo departamento.
 - Configurar los puertos conectados como en la siguiente imagen 
 
    ![image](Imagenes/sw2.PNG)
+   
+#### ============= Configurar y crear los siguientes port-channel =================================
+###### Po1: entre ESW1 y ESW2
+- conf t
+- interface range fastEthernet 1/1 - 2
+- channel-group 1 mode on
+- end
+- show etherchannel port-channel
+
+![image](Imagenes/port1.PNG)
+
+- conf t
+- interface range fastEthernet 1/1 - 2
+- channel-group 1 mode on
+- end
+- show etherchannel port-channel
+
+![image](Imagenes/port3.PNG)
+
+###### Po2: entre ESW1 y ESW3
+- conf t
+- interface range fastEthernet 1/3 - 4
+- channel-group 2 mode on
+- end
+- show etherchannel port-channel
+
+![image](Imagenes/port2.PNG)
+
+- conf t
+- interface range fastEthernet 1/3 - 4
+- channel-group 2 mode on
+- end
+- show etherchannel port-channel
+
+![image](Imagenes/port5.PNG)
+
+###### Po3: entre ESW2 y ESW3
+
+- conf t
+- interface range fastEthernet 1/5 - 6
+- channel-group 3 mode on
+- end
+- show etherchannel port-channel
+
+![image](Imagenes/port4.PNG)
+
+- conf t
+- interface range fastEthernet 1/5 - 6
+- channel-group 3 mode on
+- end
+- show etherchannel port-channel
+
+![image](Imagenes/port6.PNG)
 
 
 #### ================  Configuración de VTP   ===================================================
@@ -103,3 +174,63 @@ Para comprobar
 - sh ip interface brief 
 
  ![image](Imagenes/router.PNG)
+ 
+#### ============= Configurar PCS y maquina virtual  ==============================================
+
+##### PC1
+ 1. Comando para configurar la ip 
+      * ip 192.168.23.2/24 192.168.23.254
+      
+ 2. Para guardar los cambios 
+      * save 
+      
+ 3. Para mostrar la configuración de ip y máscara de red 
+      * sh ip 
+  
+      ![image](Imagenes/PC1.PNG)
+  
+ ##### PC2
+  1. Comando para configurar la ip 
+      * ip 192.168.13.5/24 192.168.23.254
+      
+  2. Para guardar los cambios 
+      * save 
+   
+  3. Para mostrar la configuración de ip y máscara de red 
+      * sh ip 
+  
+      ![image](Imagenes/PC2.PNG)
+      
+ ##### PC3
+  1. Comando para configurar la ip 
+      * ip 192.168.23.4/24 192.168.23.254
+      
+  2. Para guardar los cambios 
+      * save 
+   
+  3. Para mostrar la configuración de ip y máscara de red 
+      * sh ip 
+  
+      ![image](Imagenes/PC3.PNG)
+      
+ ##### Linux 
+ 
+  1.  Entrar al panel de control y seleccionar Network  
+  2. Ingresar la siguiente ip, gateway, máscara de red 
+    
+      ![image](Imagenes/linux.PNG)
+  
+  3. Aplicar y Salir 
+
+  4. Abrir la terminal 
+     Comando para mostrar la configuración 
+        * ifconfig 
+
+     Comando para comprobar conexion entre las otras pc
+        * ping direccion
+   
+
+## Captura de paquetes en cualquier parte de la topología
+![image](Imagenes/paquetes.png)
+
+## Diagrama de identificación de rutas principales
