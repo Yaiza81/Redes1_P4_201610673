@@ -243,7 +243,7 @@ Verificar STP
 
 ![image](Imagenes/s3.PNG)
 
-La principal es 
+La principal es ESW1
 
 Para mostrar los puertos bloqueados 
 - show spanning-tree blockedports
@@ -259,3 +259,4 @@ Para mostrar los puertos bloqueados
 ![image](Imagenes/paquetes.PNG)
 
 ## Diagrama de identificación de rutas principales
+![image](Imagenes/ruta.PNG)
