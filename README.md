@@ -231,6 +231,6 @@ Para comprobar
    
 
 ## Captura de paquetes en cualquier parte de la topología
-![image](Imagenes/paquetes.png)
+![image](Imagenes/paquetes.PNG)
 
 ## Diagrama de identificación de rutas principales
