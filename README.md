@@ -228,6 +228,31 @@ Para comprobar
 
      Comando para comprobar conexion entre las otras pc
         * ping direccion
+        
+#### =============  Verificar que switch es el root bridge (STP) y que puertos están bloqueados por Spanning-tree.===============
+
+Verificar el Switch Root.
+- show spanning-tree root
+
+Verificar STP 
+- show spanning-tree brief
+
+![image](Imagenes/s1.PNG)
+
+![image](Imagenes/s2.PNG)
+
+![image](Imagenes/s3.PNG)
+
+La principal es 
+
+Para mostrar los puertos bloqueados 
+- show spanning-tree blockedports
+
+   ![image](Imagenes/b1.PNG)
+   
+   ![image](Imagenes/b2.PNG)
+   
+   ![image](Imagenes/b3.PNG)
    
 
 ## Captura de paquetes en cualquier parte de la topología
