@@ -259,4 +259,4 @@ Para mostrar los puertos bloqueados
 ![image](Imagenes/paquetes.PNG)
 
 ## Diagrama de identificación de rutas principales
-![image](Imagenes/ruta.PNG)
+![image](Imagenes/ruta.png)
